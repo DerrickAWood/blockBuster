@@ -8,6 +8,8 @@ namespace BlockBuster.Models
     public List<Movie> Movies { get; private set; }
     public string Title {get; set;}
 
+    public Shop Shop { get; private set; } = new Shop();
+
     public Store(string title)
     {
       Title = title;
@@ -21,6 +23,12 @@ namespace BlockBuster.Models
       Movie onward = new Movie("on ward");
       Movies.Add(toyStory);
       Movies.Add(onward);
+    }
+
+    public void VisitShop()
+    {
+      System.Console.WriteLine("something");
+      Shop.VisitShop();
     }
 
     internal void PrintMovies()
@@ -77,7 +85,7 @@ namespace BlockBuster.Models
         else
         {
           movie.Available = true;
-          System.Console.WriteLine($"you rented {movie.Title}");
+          System.Console.WriteLine($"you returned {movie.Title}");
         }
       }
       else
